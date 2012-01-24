@@ -4,7 +4,14 @@ jQuery(document).ready(function() {
         var honyb_url = 'http://www.honyb.com/embed/products/';
         if (popup.data('sku')) {
             honyb_url =  honyb_url + popup.data('sku');
-            jQuery(this).colorbox({iframe:true, width:'80%', height:'80%', href:honyb_url});
+            jQuery(this).colorbox({
+                iframe:true,
+                width:'650px',
+                height:'80%',
+                href:honyb_url,
+                opacity: .7,
+                overlayClose: false
+            });
         }
 });
 });

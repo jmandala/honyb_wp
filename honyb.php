@@ -14,7 +14,7 @@ License: GPL2
  */
 function load_javascript() {
 	wp_enqueue_script('colorbox.js', plugins_url('/colorbox/colorbox/jquery.colorbox-min.js', __FILE__), array('jquery'), '1.0');
-	wp_enqueue_style('colorbox.css', plugins_url('/colorbox/example1/colorbox.css', __FILE__));
+	wp_enqueue_style('colorbox.css', plugins_url('/colorbox/honyb/colorbox.css', __FILE__));
     wp_enqueue_style('honyb.css', plugins_url('/honyb.css', __FILE__));
 	wp_enqueue_script('honyb', plugins_url('/honyb.js', __FILE__), array('jquery'), '1.0');
 }
