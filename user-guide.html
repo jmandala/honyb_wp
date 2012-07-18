@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Honyb User Guide</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+
+    <!-- honyb begin -->
+    <script type="text/javascript" src="honyb.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.honyb-embed').honyb({
+                affiliate_key:'samovar',
+                width:'750px',
+                height:'70%'
+            });
+        });
+    </script>
+    <!-- honyb end -->
+
+    <!-- honyb end -->
+
+    <style type="text/css">
+        .clear {
+            clear: both;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Honyb User Guide</h1>
+
+<h2>Include Dependencies</h2>
+
+<p>Honyb requires jQuery 1.7.1 or later and the honyb.js file. Include them both in the &lt;HEAD&gt; section of your html
+    file.</p>
+
+<script src="https://gist.github.com/2158596.js?file=honyb-head-embed.js"></script>
+
+<h2>API</h2>
+
+<p>Embed tags are simply HTML with a class of "honyb-embed" and a data-sku property that references one more products to
+    embed. The data-view property can be used to select different embed templates.</p>
+
+<p></p>
+
+<h3>Inline vs. Block</h3>
+
+<p>Embed links can be created inline, or as display blocks. To display inline use the SPAN tag. This will display a
+    title
+    linked to the product sku specified. Use DIV tags to display as a block</p>
+
+<h4>Examples</h4>
+
+<ul>
+    <li><strong>Block</strong>: <code>&lt;div class="honyb-embed" data-sku="9781555974831"&gt;&lt;/div&gt;</code></li>
+    <li><strong>Inline</strong>: <code>&lt;span class="honyb-embed" data-sku="9781555974831"&gt;&lt;/span&gt;</code>
+    </li>
+</ul>
+
+<h3>Data View Options</h3>
+
+<p>Use the <code>data-view</code> property to control the embedded product display. For example:</p>
+
+<p><code>&lt;div class="honyb-embed" data-sku="9781555974831" data-view="cover-buy"&gt;&lt;/div&gt;</code></p>
+
+<ul>
+    <li><code>product-brief</code>: <em>[default]</em> displays the cover, buy button, title, author, specs and
+        description.
+    </li>
+    <li><code>cover</code>: displays the cover only.</li>
+    <li><code>cover-buy</code>: displays the cover and buy button.</li>
+    <li><code>mosaic</code>: displays covers all floated left into a mosaic grid.</li>
+</ul>
+
+<h3>Foating Right/Left</h3>
+
+<p>Add the class <code>left</code> or <code>right</code> after the <code>honyb-embed</code> class to control floating.
+</p>
+
+<ul>
+    <li><strong>Float left</strong>: <code>&lt;div class="honyb-embed left"
+        data-sku="9781555974831"&gt;&lt;/div&gt;</code></li>
+    <li><strong>Float right</strong>: <code>&lt;div class="honyb-embed right"
+        data-sku="9781555974831"&gt;&lt;/div&gt;</code></li>
+</ul>
+
+<h2>Embed Examples</h2>
+
+<h3>Inline</h3>
+
+<p>This is a test of an inline link to a book.
+    In this case we are linking to <span class="honyb-embed" data-sku='9780061537189'></span>.
+</p>
+
+<h3>Cover And Buy Button</h3>
+
+<div class="honyb-embed" data-sku="9781555974831" data-view="cover-buy"></div>
+
+<h4>Floated left</h4>
+
+<div class="honyb-embed left" data-sku="9781555974831" data-view="cover-buy"></div>
+<p>Want to float it to the left? Just add the "left" class to the div tag. </p>
+
+<div class="clear"></div>
+<h4>Floated right</h4>
+
+<div class="honyb-embed right" data-sku="9781555974831" data-view="cover-buy"></div>
+<p>Want to float it to the right? Just add the "right" class to the div tag. </p>
+
+<div class="clear"></div>
+<h3>Cover Only</h3>
+
+<div class="honyb-embed left" data-sku="9781555974831" data-view="cover"></div>
+<p>Just want the cover? No problem: data-view="cover" </p>
+
+<div class="clear"></div>
+
+<h3>Prouduct Brief</h3>
+
+<div class="honyb-embed" data-sku="9781555974831"></div>
+
+<h3>Product List</h3>
+
+<div class="honyb-embed"
+     data-sku="9781555974831,
+                     9780061537189,
+                     9781933517476,
+                     9780887485350,
+                     9781555975210"></div>
+
+<h3>Mosaic</h3>
+
+<div style="width: 500px; background-color: black; padding: 20px">
+    <div class="honyb-embed"
+         data-view="mosaic"
+         data-sku="9781555974831,
+9780061537189,
+9781933517476,
+9780887485350,
+9781555975210,
+9780393930672,
+9781848611283,
+9780924047848,
+9780226673394,
+9781555974800,
+9780819571304,
+9780811218702,
+9781594515521,
+9781566892438,
+9781556593321,
+9781933517520,
+9780375421143,
+9789089790651,
+9781934200407,
+9780226660615,
+9781556593062,
+9780674018532,
+9781566892513,
+9780670022953">
+    </div>
+
+</body>
+</html>

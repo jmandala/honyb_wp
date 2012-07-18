@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Consumer</title>
+    <script language="javascript" src="easyXDM.debug.js"></script>
+    <script type="text/javascript">
+        var HONYB = { easyXDM:easyXDM.noConflict("HONYB")};
+
+        var socket = new HONYB.easyXDM.Socket({
+                    remote:"provider.html",
+                    onMessage:function (message, origin) {
+                        console.log('called onMessage on consumer', message, "from ", origin);
+                    } });
+
+        var rpc = new HONYB.easyXDM.Rpc({
+                    local:"name.html",
+                    remoteHelper:"name.html",
+                    remote:"provider.html",
+                    acl:["*.bostonreview.net*", "*.honyb.com"]
+                },
+                {
+                    local:{
+                        testConsumer:function (successFn, errorFn) {
+                            alert('called close on consumer');
+                            return true;
+                        }
+                    },
+                    remote:{
+                        closeHonyb:{}
+                    }
+                });
+
+        var successFn = function (response) {
+            console.log('success');
+            console.log('called close on consumer!');
+            console.log(response);
+        };
+        var errorFn = function (errorObj) {
+            console.log('error');
+            console.log(errorObj);
+        };
+
+    </script>
+</head>
+<body>
+This is the consumer
+<button name="handler" value="close me" onclick="javascript:socket.postMessage('close me!')">Close Me!</button>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Provider</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../colorbox/honyb/colorbox.css"/>
+    <script type="text/javascript" language="javascript" src="../colorbox/colorbox/jquery.colorbox.js"></script>
+
+    <script type="text/javascript" language="javascript" src="easyXDM.debug.js"></script>
+    <script type="text/javascript">
+        var HONYB = { easyXDM:easyXDM.noConflict("HONYB")};
+
+        var socket = new HONYB.easyXDM.Socket({
+                    onMessage:function (message, origin) {
+                        console.log("Got " + message + " from " + origin);
+                    }
+                }
+        );
+
+        var rpc = new HONYB.easyXDM.Rpc({
+                    local:"name.html",
+                    swf:"easyxdm.swf",
+                    remote:"consumer.html",
+                    acl:["*.bostonreview.net*", "*.honyb.com"]
+                },
+                {
+                    local:{
+                        closeHonyb:function (successFn, errorFn) {
+                            try {
+                                closeColorbox();
+                            } catch (e) {
+                                alert('an exception occurred');
+                                console.log(e);
+                                throw e;
+                            }
+                            return true;
+                        }
+                    },
+                    remote:{
+                        testConsumer:{}
+                    }
+                }
+        );
+
+        function closeColorbox() {
+            return $.colorbox.close();
+        }
+
+        jQuery(document).ready(function ($) {
+            window.a = 1;
+            $('#launcher').colorbox({href:'consumer.html', iframe:true, height:'50%', width:'50%'});
+        });
+    </script>
+</head>
+<body>
+<p>This is the provider.
+
+    The provider has an iframe. From within the Iframe a button clicked will call a method on the provider.
+</p>
+
+<button id="launcher">Open IFrame</button>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>easyXDM</title>
+        <style type="text/css">
+            html, body {
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="resized_iframe_2.html">resized_iframe_2.html</a>
+        <br/>
+        Nam nulla nibh, tempus ut dictum eget, euismod vitae metus. Donec vitae nulla nec quam sagittis gravida vel quis eros. Nullam vel est justo. Donec euismod interdum magna, et rutrum libero tincidunt vel. Praesent imperdiet, magna et suscipit facilisis, nulla justo consequat nisl, et mollis elit nunc a est. Sed felis quam, condimentum eget gravida non, semper non quam. Duis vestibulum sem id erat tristique eleifend. Phasellus ante nunc, pulvinar nec facilisis at, hendrerit sed leo. Morbi lacinia nisl id nunc faucibus lacinia. Curabitur adipiscing leo a odio aliquet hendrerit. Nullam laoreet pulvinar suscipit.
+
+        <script type="text/javascript">
+            window.onload = function(){
+                parent.socket.postMessage(document.body.clientHeight || document.body.offsetHeight || document.body.scrollHeight);
+            };
+        </script>
+    </body>
+</html>

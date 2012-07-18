@@ -1,43 +1,108 @@
+
+.book-list {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    clear: both;
+}
+
+/* EMBED */
+
+.honyb-embed {
+    display: none;
+}
+
+.honyb-embed.left {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.honyb-embed.right {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+/* POP UP */
 .honyb-popup {
     cursor: pointer;
+}
+
+span.honyb-popup {
+    color: blue;
+    text-decoration: underline;
 }
 
 .honyb-popup:hover {
     text-decoration: underline;
 }
 
-.honyb .info {
-    clear: both;
-    font-size: 10px;
-    font-family: sans-serif;
-    color: #666;
+
+.honyb-popup.inline {
+    color: maroon;
+    font-size: 100%;
 }
 
-.button {
+.honyb .clear {
+    clear: both;
+}
+
+/* PROUCT */
+.honyb-embed.mosaic {
+    overflow: hidden;
+}
+
+.honyb-embed.mosaic .honyb {
+    float: left;
+    margin: 2px;
+}
+
+.honyb .book {
+    clear: both;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.honyb .book .cover {
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.honyb .book .info {
+    overflow: hidden;
+}
+
+.honyb .button {
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	font: 14px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    font-weight: bold;
+	padding: .5em 1em .55em;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
 	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    margin-top: 1em;
+    width: 80px;
+    white-space: nowrap;
 }
-.button:hover {
+.honyb .button:hover {
 	text-decoration: none;
 }
-.button:active {
+
+.honyb .button:active {
 	position: relative;
 	top: 1px;
 }
 
-.orange {
+.honyb .orange {
 	color: #fef4e9;
 	border: solid 1px #da7c0c;
 	background: #f78d1d;
@@ -45,15 +110,51 @@
 	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-.orange:hover {
+
+.honyb .orange:hover {
 	background: #f47c20;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
 	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
 }
-.orange:active {
+
+.honyb .orange:active {
 	color: #fcd3a5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
 	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+/* FONTS */
+.honyb .title-and-subtitle {
+    margin-bottom: 10px;
+}
+
+.honyb .title {
+    font-weight: bold;
+    color: navy;
+}
+
+.honyb .author {
+    font-style: italic;
+}
+
+.honyb .price-and-shipping {
+    margin: 10px 0 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.honyb .specs {
+    font-size: 90%;
+    color: #777;
+}
+
+.honyb .description {
+    margin: 10px 0;
+}
+
+.honyb .buy-text {
+    font-size: 90%;
+    color: #777;
 }

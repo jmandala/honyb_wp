@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>easyXDM</title>
+        <style type="text/css">
+            html, body {
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background-color: #eee;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function close() {
+                alert("clicked close");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <div><a href="resized_iframe_1.html">resized_iframe_1.html</a></div>
+        <button name="close" onclick="parent.socket.postMessage('close')">Close Me</button>
+        <br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis libero, non ultricies ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lorem libero. Phasellus malesuada, mauris eget suscipit tristique, dolor dui blandit purus, ut mollis eros dolor et elit. Ut consequat ultrices metus, pretium mattis dui adipiscing vitae. Nunc cursus, sapien vehicula auctor faucibus, enim orci pretium risus, id congue ligula justo sed felis. Proin nec quam justo. Cras tempor odio eget orci lacinia sit amet malesuada leo feugiat. In accumsan tincidunt enim, vitae ultricies arcu egestas in. Nulla rhoncus eros vel ipsum venenatis porta. Suspendisse id erat nec mauris ultricies consectetur id feugiat odio. Vestibulum pretium tristique magna sed ultrices. Suspendisse tortor mauris, facilisis et lobortis quis, suscipit sed est. Sed vitae tortor at lacus pretium blandit. Donec vitae nibh quis orci mollis fringilla. Duis tempus augue nec ipsum euismod elementum.
+        Donec pharetra sem nec lacus posuere et lacinia ligula sollicitudin. Morbi semper commodo posuere. In adipiscing nulla ut urna fermentum vestibulum. Sed consectetur massa non neque facilisis interdum. Quisque semper massa et urna euismod nec fermentum metus feugiat. Morbi tempor commodo enim non lacinia. Aliquam elementum tortor mattis odio congue a egestas lacus bibendum. Integer nec leo massa, a ullamcorper mi. Morbi vitae massa arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Nam nulla nibh, tempus ut dictum eget, euismod vitae metus. Donec
+        <script type="text/javascript">
+            window.onload = function(){
+                parent.socket.postMessage(document.body.clientHeight || document.body.offsetHeight || document.body.scrollHeight);
+            };
+
+        </script>
+    </body>
+</html>

@@ -1,5 +1,6 @@
-// ColorBox v1.3.19 - jQuery lightbox plugin
-// (c) 2011 Jack Moore - jacklmoore.com
+// Honybox v0.1.0 - jQuery lightbox that support easyxdm iframes
+// based on ColorBox v1.3.19 - jQuery lightbox plugin
+// (c) 2012 Joshua Jacobs - mandaladesigns.com
 // License: http://www.opensource.org/licenses/mit-license.php
 (function ($, document, window) {
     var
@@ -21,6 +22,8 @@
                 inline:false,
                 html:false,
                 iframe:false,
+                xdm_iframe:false,
+                xdm_proxy:false,
                 fastIframe:true,
                 photo:false,
                 href:false,
@@ -104,6 +107,7 @@
             loadedHeight,
             loadedWidth,
             element,
+            xdm_iframe,
             index,
             photo,
             open,
@@ -344,6 +348,7 @@
         if ($box) {
             if (!init) {
                 init = true;
+                xdm_iframe = false;
 
                 // Cache values needed for size calculations
                 interfaceHeight = $topBorder.height() + $bottomBorder.height() + $content.outerHeight(true) - $content.height();//Subtraction needed for IE6
@@ -690,6 +695,51 @@
                 $(iframe).addClass(prefix + 'Iframe').appendTo($loaded).one(event_purge, function () {
                     iframe.src = "//about:blank";
                 });
+
+                // Process the iframe as an XDM request using the XDM_PROXY
+            } else if (settings.xdm_iframe) {
+                var transport = new easyXDM.Socket({
+                    remote:settings.xdm_proxy + "?url=" + settings.href,
+                    container: 'cboxContent',
+                    swf:"http://localhost:3000/easyxdm/easyxdm.swf",
+                    onReady:function () {
+                        xdm_iframe = this.container.getElementsByTagName("iframe")[0];
+                        var iframe = xdm_iframe;
+
+                        iframe.style.position = 'relative';
+                        iframe.style.top = '0';
+
+                        if (frameBorder in iframe) {
+                            iframe[frameBorder] = 0;
+                        }
+                        if (allowTransparency in iframe) {
+                            iframe[allowTransparency] = "true";
+                        }
+                        // give the iframe a unique name to prevent caching
+                        iframe.name = prefix + (+new Date());
+
+
+                        if (!settings.scrolling) {
+                            iframe.scrolling = "no";
+                        }
+                        $(iframe).addClass(prefix + 'Iframe').appendTo($loaded).one(event_purge, function () {
+                            iframe.src = "//about:blank";
+                        });
+
+                    },
+                    onMessage:function (message, origin) {
+                        if (message === 'close') {
+                            $.colorbox.close();
+                        } else if (message === 'loaded') {
+                            if (settings.fastIframe) {
+                                complete();
+                            } else {
+                                $(iframe).one('load', complete);
+                            }
+                        }
+                    }
+                });
+
             } else {
                 complete();
             }
@@ -763,7 +813,7 @@
                 $(this).replaceWith($loaded.children());
             });
             prep($(href));
-        } else if (settings.iframe) {
+        } else if (settings.iframe || settings.xdm_iframe) {
             // IFrame element won't be added to the DOM until it is ready to be displayed,
             // to avoid problems with DOM-ready JS that might be trying to run in that iframe.
             prep(" ");
@@ -865,7 +915,7 @@
 
                 trigger(event_purge);
 
-                $loaded.remove();
+                //$loaded.remove();
 
                 setTimeout(function () {
                     closing = false;
