@@ -43,11 +43,12 @@ add_action('wp_head', 'honyb_head');
  * @return string
  */
 function honyb_tag($atts) {
-    extract(shortcode_atts(array('sku' => '', 'float' => ''), $atts));
+    extract(shortcode_atts(array('sku' => '', 'float' => '', 'view' => 'product-brief'), $atts));
 
     /** @var $sku String */
     /** @var $float String */
-    return "<div class='honyb-embed {$float}' data-sku='{$sku}' data-view='cover-buy'></div>";
+    /** @var $view String */
+    return "<div class='honyb-embed {$float}' data-sku='{$sku}' data-view='{$view}'></div>";
 }
 
 add_shortcode('honyb', 'honyb_tag');
