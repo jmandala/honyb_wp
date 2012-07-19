@@ -6,7 +6,7 @@ Description: Provides shortcodes for embedding honyb.com books
 Version: 0.4
 Author: Joshua Jacobs
 Author URI: http://joshuajacobs.name
-License: GPL2
+License: GPL2 or later
 */
 
 // ------------------------------------------------------------------------
