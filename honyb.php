@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: honyb_embed
+Plugin Name: Honyb Embed
 Plugin URI: http://www.honyb.com
 Description: Provides shortcodes for embedding honyb.com books
 Version: 0.4
@@ -109,7 +109,7 @@ function honyb_init(){
 
 // Add menu page
 function honyb_add_options_page() {
-	add_options_page(_e('Honyb Embed Settings'), _e('Honyb Embed'), 'manage_options', __FILE__, 'honyb_render_form');
+	add_options_page(__('Honyb Setting'), __('Honyb Settings'), 'manage_options', __FILE__, 'honyb_render_form');
 }
 
 // ------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ function honyb_validate_options($input) {
 function honyb_plugin_action_links( $links, $file ) {
 
 	if ( $file == plugin_basename( __FILE__ ) ) {
-		$honyb_links = '<a href="'.get_admin_url().'options-general.php?page=plugin-options-starter-kit/plugin-options-starter-kit.php">'.__('Settings').'</a>';
+		$honyb_links = '<a href="'.get_admin_url().'options-general.php?page='. $file . '">'.__('Settings').'</a>';
 		// make the 'Settings' link appear first
 		array_unshift( $links, $honyb_links );
 	}
