@@ -209,9 +209,9 @@ function honyb_head() {
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $('.honyb-embed').honyb({
-            affiliate_key:'<?php $options['affiliate_key'] ?>',
-            width:'<?php $options['popup_width'] ?>',
-            height:'<?php $options['popup_height'] ?>'
+            affiliate_key:'<?php echo $options['affiliate_key'] ?>',
+            width:'<?php echo $options['popup_width'] ?>',
+            height:'<?php echo $options['popup_height'] ?>'
         });
     });
 </script>
