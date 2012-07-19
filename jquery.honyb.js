@@ -188,13 +188,13 @@
             cover_buy +
             '<div class="info">' +
             '<div class="title-and-subtitle">' +
-            '<div class="honyb-popup title" data-sku="{{master.sku}}">{{name}}</div>' +
-            '{{#subtitle}}<div class="subtitle">{{subtitle}}</div>{{/subtitle}}' +
+            '<div class="honyb-popup title" data-sku="{{master.sku}}">{{{name}}}</div>' +
+            '{{#subtitle}}<div class="subtitle">{{{subtitle}}}</div>{{/subtitle}}' +
             '</div>' +
-            '{{#author}}<div class="author">{{author}}</div>{{/author}}' +
+            '{{#author}}<div class="author">{{{author}}}</div>{{/author}}' +
             '<div class="price-and-shipping"><span class="price">{{price}}</span>, <span class="free-shipping">free shipping</span></div>' +
             '{{#specs}}<div class="specs">{{specs}}</div>{{/specs}}' +
-            '<div class="description">{{description}}</div>' +
+            '<div class="description">{{{description}}}</div>' +
             '</div><div class="clear"></div></div>';
 
     var inline_link = '<div class="buy-text">Buy online <span class="honyb-popup inline" data-sku="{{master.sku}}">from the Boston Review Bookstore.</span></div>';
